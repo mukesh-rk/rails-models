@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
 	#@user=User.new
 	def reg
-		@user = User.new(params[:user])
-    if(request.post?)
-      flash[:notice] = “Account Created Successfully”
-      redirect_to "www.google.com"
-    end
+		$user=User.new()
+		$user=params[:user]
+		$pwd=$user.pwd
+		$uname=$user.uname
+		if $pwd
+			$user.pwd=$user.hash(@pwd)
+		end
 	end
 	def login
 	end
