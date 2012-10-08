@@ -1,5 +1,5 @@
-<%= form_for @user, :url => {:action => "reg"} do |f| %>
-        <%= f.label :name %>
+<%= form_for :user do |f| %>
+      <%= f.label :name %>
       <%= f.text_field :uname %>
       <%= f.label :password %>
       <%= f.password_field :pwd %>
