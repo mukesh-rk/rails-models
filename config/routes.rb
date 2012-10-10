@@ -4,8 +4,8 @@ Login::Application.routes.draw do
   get "home/init"
   post "users/create"
   post "users/reg"
-
   post "users/login"
+  put "users/createsession"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

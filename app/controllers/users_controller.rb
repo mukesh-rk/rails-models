@@ -15,10 +15,15 @@ class UsersController < ApplicationController
 	end
 	def auth
 		user1=User.find_by_uname(params[:user][:uname])
-		puts "AAAAAAAAAAAAAAAAAAAAAAAAAAA"
 		if user1.pwd == params[:user][:pwd]
-			redirect_to ("http://www.rubykitchen.in")
+			hashkey=Time.now.utc.to_s+user1.created_at.to_s
+			createsession(hashkey)
 		end
+	end
+
+	def createsession(arg)
+		session[:id]=BCrypt::Password.create("#{arg}")
+		redirect_to ("http://www.rubykitchen.in")
 	end
 
 	def regs
