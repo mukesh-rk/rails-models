@@ -1,6 +1,6 @@
 Login::Application.routes.draw do
   get "users/regs"
-
+  post "users/auth"
   get "home/init"
   post "users/create"
   post "users/reg"
